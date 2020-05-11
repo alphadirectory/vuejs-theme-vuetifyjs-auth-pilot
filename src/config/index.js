@@ -13,8 +13,8 @@ if (!ENV_PRODUCTION) {
   };
 } else {
   config = {
-    api: serialize('api.minhaapi.com.br'),
-    auth: serialize('api.autenticacao.com.br'),
+    api: serialize('api.minhaapi.com.br', true),
+    auth: serialize('api.autenticacao.com.br', true),
     pusher: {
       key: '5e69969fec2396356747'
     },
