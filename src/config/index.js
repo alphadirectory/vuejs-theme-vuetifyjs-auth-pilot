@@ -3,19 +3,18 @@ import axios from 'axios';
 const ENV_PRODUCTION = false;
 
 let config = {};
-// ttp://crm.api.advancedservice.com.br/api/pessoa?search=
 if (!ENV_PRODUCTION) {
   config = {
-    api: serialize('crm.api.advancedservice.com.br/api/'),
-    auth: serialize('guard.advancedservice.com.br/api/'),
+    api: serialize('127.0.0.1:8000'),
+    auth: serialize('127.0.0.1:8001'),
     pusher: {
       key: '5e69969fec2396356747'
     },
   };
 } else {
   config = {
-    api: serialize('192.168.0.48:7011/api/'),
-    auth: serialize('guard.advancedservice.com.br/api/'),
+    api: serialize('api.minhaapi.com.br'),
+    auth: serialize('api.autenticacao.com.br'),
     pusher: {
       key: '5e69969fec2396356747'
     },
