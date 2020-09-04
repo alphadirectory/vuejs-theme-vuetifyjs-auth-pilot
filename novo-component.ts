@@ -11,7 +11,6 @@ function start() {
     build(base_path, files[1], setCompente(result.component));
     build(base_path, files[2], setServico(result.component));
     criaPastaComponent(base_path);
-
     return;
   });
 }
@@ -46,7 +45,6 @@ function setIndex(component) {
   body += `<template>\n`;
   body += `\t<div> Component ${component} funcionou ! </div>  \n`;
   body += `</template>\n`;
-
   body += `<script>\n`;
   body += `\texport default {\n`;
   body += `\t\tdata() {\n`;
