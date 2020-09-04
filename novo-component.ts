@@ -10,6 +10,8 @@ function start() {
     build(base_path, files[0], setIndex(result.component));
     build(base_path, files[1], setCompente(result.component));
     build(base_path, files[2], setServico(result.component));
+    criaPastaComponent(base_path);
+
     return;
   });
 }
@@ -45,13 +47,13 @@ function setIndex(component) {
   body += `\t<div> Component ${component} funcionou ! </div>  \n`;
   body += `</template>\n`;
 
-  body +=`<script>\n`;
-  body +=`\texport default {\n`;
-  body +=`\t\tdata() {\n`;
-  body +=`\t\t\treturn {}\n`;
-  body +=`\t\t}\n`;
-  body +=`\t}\n`;
-  body +=`</script>`;
+  body += `<script>\n`;
+  body += `\texport default {\n`;
+  body += `\t\tdata() {\n`;
+  body += `\t\t\treturn {}\n`;
+  body += `\t\t}\n`;
+  body += `\t}\n`;
+  body += `</script>`;
   return body;
 }
 
@@ -76,6 +78,13 @@ function escreverArquivo(arquivo_montado, conteudo) {
     if (err) return print(err);
     print(arquivo_montado);
   });
+}
+
+function criaPastaComponent(path) {
+  const fs = require('fs');
+  if (!fs.existsSync(`${path}components`)) {
+    fs.mkdir(`${path}components`, err => { if (err) print(err); });
+  }
 }
 
 function print(val) {
