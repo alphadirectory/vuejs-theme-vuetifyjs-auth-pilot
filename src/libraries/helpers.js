@@ -1,9 +1,11 @@
 const helpers = {
+
   minDateEnem() {
     const date = new Date();
     const anoAtual = date.getFullYear();
     return (anoAtual - 10) + "/04/02";
   },
+  
   isFullName(nome) {
     if (!this.isUndefined(nome)) {
       nome = nome.trim();

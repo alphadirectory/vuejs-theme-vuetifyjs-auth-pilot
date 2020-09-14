@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const ENV_PRODUCTION = false;
 
 let config = {};
-if (!ENV_PRODUCTION) {
+if (!prodution()) {
   config = {
     api: serialize('127.0.0.1:8000'),
     auth: serialize('127.0.0.1:8001'),
@@ -24,7 +23,6 @@ if (!ENV_PRODUCTION) {
 const storeKeys = {
   session: "@SESSION",
   auth: "@AUTH",
-  matricula: "@MATRICULA"
 };
 
 function serialize(url, ssl = false) {
@@ -34,6 +32,12 @@ function serialize(url, ssl = false) {
     secret: '-',
     token: btoa(`-:`)
   };
+}
+
+function prodution() {
+  if (process.env.VUE_APP_ENV == 'production') return true;
+  return false;
+
 }
 
 export { axios, config, storeKeys };

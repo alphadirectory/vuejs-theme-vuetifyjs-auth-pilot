@@ -20,7 +20,7 @@ function setCompente(component) {
   let body = "";
   body += `import vue from 'vue';\n`;
   body += `import app${novoNome}Index from './index';\n`;
-  body += `vue.component('app-${component}-index}', app${novoNome}Index);\n`;
+  body += `vue.component('app-${component}-index', app${novoNome}Index);\n`;
   return body;
 
 }
